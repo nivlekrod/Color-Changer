@@ -8,8 +8,18 @@ function getRandomColor() {
     return getHex;
 }
 
+function verifyColor() {
+    let newColor;
+    do {
+        newColor = getRandomColor();
+    } while (colors.includes(newColor));
+    colors.push(newColor);
+    return newColor;
+}
+
 button.addEventListener('click', () => {
-    document.body.style.backgroundColor = getRandomColor();
-    display.innerHTML = getHex;
-    display.style.color = getHex;
+    const newColor = verifyColor();
+    document.body.style.backgroundColor = newColor;
+    display.innerHTML = newColor;
+    display.style.color = newColor;
 })
